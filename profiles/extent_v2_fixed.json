@@ -1,0 +1,73 @@
+{
+  "profile_name": "extent_v2",
+  "priority": 30,
+  "detection": {
+    "contains_text": [
+      "ExtentReports 2.0",
+      "ExtentReports Library 2.41.1",
+      "relevantcodes"
+    ],
+    "xpaths": [
+      "//ul[@id='test-collection']",
+      "//li[contains(@class,'collection-item') and contains(@class,'test')]"
+    ]
+  },
+  "report": {
+    "name": {
+      "xpaths": [
+        "normalize-space(//span[contains(@class,'report-name')])",
+        "normalize-space(//title)"
+      ],
+      "default": "Extent v2 Report"
+    }
+  },
+  "records": {
+    "root_xpath": "//li[contains(@class,'collection-item') and contains(@class,'test')]",
+    "failed_test_count": {
+      "xpaths": [
+        "normalize-space(//span[contains(@class,'t-fail-count')])"
+      ]
+    },
+    "filter": {
+      "field": "status",
+      "operator": "contains_ignore_case",
+      "value": "fail"
+    },
+    "fields": {
+      "test_name": {
+        "xpaths": [
+          "normalize-space(.//span[contains(@class,'test-name')])"
+        ]
+      },
+      "status": {
+        "xpaths": [
+          "normalize-space(.//span[contains(@class,'test-status')])",
+          "normalize-space(.//*[contains(@class,'fail')][1])"
+        ],
+        "default": "fail"
+      },
+      "failure_message": {
+        "xpaths": [
+          "normalize-space((.//table[contains(@class,'table-results')]//tbody/tr[contains(translate(.,'FAIL','fail'),'fail')][1]//td[contains(@class,'step-details')])[1])",
+          "normalize-space((.//table[contains(@class,'table-results')]//tbody/tr[contains(translate(.,'FAIL','fail'),'fail')][1]//td[3])[1])"
+        ]
+      },
+      "stack_trace": {
+        "xpaths": [
+          "normalize-space((.//table[contains(@class,'table-results')]//td[contains(@class,'step-details')]//pre[1])[1])",
+          "normalize-space((.//table[contains(@class,'table-results')]//pre[1])[1])",
+          "normalize-space((.//table[contains(@class,'table-results')]//tbody/tr[contains(translate(.,'EXCEPTION','exception'),'exception')][1]//td[contains(@class,'step-details')])[1])",
+          "normalize-space((.//pre[contains(translate(.,'EXCEPTION','exception'),'exception')])[1])",
+          "normalize-space((.//pre)[1])"
+        ]
+      }
+    },
+    "total_test_count": {
+      "xpaths": [
+        "normalize-space(//span[contains(@class,'total-tests')])",
+        "normalize-space(//div[contains(@class,'suite-total-tests')]//span[contains(@class,'panel-lead')])",
+        "normalize-space(count(//li[contains(@class,'collection-item') and contains(@class,'test')]))"
+      ]
+    }
+  }
+}

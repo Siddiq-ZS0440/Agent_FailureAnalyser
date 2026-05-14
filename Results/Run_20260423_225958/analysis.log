@@ -1,0 +1,53 @@
+2026-04-23 22:59:58,994 | INFO | Created run directory: D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_225958
+2026-04-23 22:59:58,996 | INFO | Stage 1/3: Starting extraction
+2026-04-23 22:59:59,008 | INFO | Loaded 4 profile(s) from D:\Failure_Analyser\Failure_Analyser_v6\profiles
+2026-04-23 22:59:59,008 | INFO | Reading HTML report: C:\Users\SAKTHI~1.A\AppData\Local\Temp\tmplgiorp_y\TestNG Report_202411211508.html
+2026-04-23 22:59:59,613 | INFO | Auto-detected report type: testng_custom
+2026-04-23 22:59:59,750 | INFO | Found 99 candidate record node(s)
+2026-04-23 23:00:05,086 | INFO | Extraction completed with 35 failed test(s)
+2026-04-23 23:00:05,254 | INFO | Copied source report to D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_225958\TestNG Report_202411211508.html
+2026-04-23 23:00:05,278 | INFO | Wrote extraction output to D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_225958\report_failure_details.json
+2026-04-23 23:00:05,283 | INFO | Stage 2/3: Starting categorization
+2026-04-23 23:00:05,289 | INFO | Reading extraction JSON: D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_225958\report_failure_details.json
+2026-04-23 23:00:05,304 | INFO | Loaded categorization config from D:\Failure_Analyser\Failure_Analyser_v6\failure_categorization.json
+2026-04-23 23:00:05,329 | INFO | TRACE MATCH -> Data Issue: NullPointerException
+2026-04-23 23:00:05,335 | INFO | TRACE MATCH -> Data Issue: NullPointerException
+2026-04-23 23:00:05,346 | INFO | No match found for test 'TS98208_Global_UPMC_DS10258_ExpertSignOff_WorkFlow_Expert_Filter All_Denied_AgreeDecision_Yes'. Using default category 'Unknown'
+2026-04-23 23:00:05,354 | INFO | No match found for test 'TS98208_Global_SH_DS9797_ExpertSignOff_WorkFlow_SH_Filter_All_MakeDecision_Denied_AgreeDecision_Yes'. Using default category 'Unknown'
+2026-04-23 23:00:05,365 | INFO | No match found for test 'TS98208_Global_Point32Health_DS10191_ExpertSignOff_WorkFlowExpert_Filter All_Denied_AgreeDecision_Yes'. Using default category 'Unknown'
+2026-04-23 23:00:05,369 | INFO | No match found for test 'TS99656_Global_SH_DS9103_MDSignoff_Workflow_SH_Filter_All_EOC_GetNext_Button'. Using default category 'Unknown'
+2026-04-23 23:00:05,377 | INFO | No match found for test 'TS98208_Global_PHP_DS9826_ExpertSignOff_WorkFlow_PHP_Filter_All_Denied_AgreeDecision_Yes'. Using default category 'Unknown'
+2026-04-23 23:00:05,387 | INFO | No match found for test 'TS100450_Global_IngenioRx_DS9146_AuthorizationWorkFlow_Anthem_SubmitAuthorization_Filter_SubmitAuth_Pharmacy'. Using default category 'Unknown'
+2026-04-23 23:00:05,394 | INFO | No match found for test 'TS100450_Global_BCBSMI_DS13463_AuthorizationWorkFlow_June2024_CR4513_EOC Authorizations-Filter-Submit Authorization-Exit Queue'. Using default category 'Unknown'
+2026-04-23 23:00:05,400 | INFO | No match found for test 'TS101815_Global_ElixirOhio_DS19630_ExpertSignOff_WorkFlow_TestCase1_Expert Signoff-Filter-Making Decision-Commercial-Making Decision-Agree with decision Yes'. Using default category 'Unknown'
+2026-04-23 23:00:05,406 | INFO | No match found for test 'TS102098_Global_PHP_DS12077_RphSignoffWorkflow_TestCase3_Rph_Filter All_AgreeDecision_Yes_ContinueThisEOC'. Using default category 'Unknown'
+2026-04-23 23:00:05,415 | INFO | No match found for test 'TS102546_Global_UPMC_DS21154_AuthorizationWorkFlow2_June2024_CR4513_EOC Authorizations-Filter-Submit Authorization-Exit Queue_UPMC'. Using default category 'Unknown'
+2026-04-23 23:00:05,421 | INFO | No match found for test 'TS102132_Global_Geisinger_DS12432_RphSignoffWorkflow_TestCase4_RPH Signoff-Filter-Medicare-Making Decision-Agree with decision Yes'. Using default category 'Unknown'
+2026-04-23 23:00:05,426 | INFO | No match found for test 'TS102813_Global_BCBSAZ_DS21403_MDSignoff_Workflow_Testcase3_MD Signoff-Filter-Commercial-Making Decision-Agree with decision Yes'. Using default category 'Unknown'
+2026-04-23 23:00:05,432 | INFO | No match found for test 'TS102835_Global_Humana_DS23204_AuthorizationWorkFlow3_June2024_CR4513_EOC Authorizations-Filter-Submit Authorization-Exit Queue'. Using default category 'Unknown'
+2026-04-23 23:00:05,440 | INFO | No match found for test 'TS102835_Global_PHP_DS36851_AuthorizationWorkFlow3_June2024_CR4513_EOC Authorizations-Filter-Submit Authorization-Exit Queue'. Using default category 'Unknown'
+2026-04-23 23:00:05,449 | INFO | No match found for test 'TS102867_Global_Geisinger_DS21631_ExpertSignOff_WorkFlow_TestCase4_Expert Signoff_Filter_Pharmacy_Agree with Decision Yes_Denied EOC_Get Next'. Using default category 'Unknown'
+2026-04-23 23:00:05,457 | INFO | No match found for test 'TS103217_Global_IngenioRx_DS69162_CreateEOCPhoneFlow_AnthemAnthem_EOC_Phone_Flow_CreateEOC_Anthem_Feb_CALIFORNIA-CommercialSRx_Medical_FERAHEME_Prescriber_AORFormReceived_No_Urgency_No_Denied_InitialPrimary_Phone_CarelonRx'. Using default category 'Unknown'
+2026-04-23 23:00:05,465 | INFO | No match found for test 'TS103218_Global_Geisinger_DS69928_CreateEOCPhoneFlow_Geisinger_DS69928Geisinger_EOC_Phone_Flow_CreateEOC_Geisinger_Feb_MedicaidCHIP804_Pharmacy_TRAMADOLHCL_Prescriber_AORFormReceived_No_Urgency_Yes_Approved_InitialPrimary_Fax_Pharmacy'. Using default category 'Unknown'
+2026-04-23 23:00:05,472 | INFO | No match found for test 'TS103232_Global_PBD_DS70389_CreateEOCPhoneFlow_PBD_DS70389PBD_EOC_Phone_Flow_CreateEOC_PBD_LMHF_Pharmacy_NURTECODT_Prescriber_AORFormReceived_No_Urgency_No_Approved_InitialPrimary_Fax_PA'. Using default category 'Unknown'
+2026-04-23 23:00:05,477 | INFO | No match found for test 'TS103233_Global_PHP_DS70523_CreateEOCPhoneFlow_PHP_DS70523php_EOC_Phone_Flow_CreateEOC_PHP_ProvidenceHealthPlans_Pharmacy_FOLLISTIMAQ_Prescriber_AORFormReceived_No_Urgency_Yes_Approved_InitialPrimary_Fax_All'. Using default category 'Unknown'
+2026-04-23 23:00:05,484 | INFO | No match found for test 'TS103223_Global_MC21_DS70297_CreateEOCPhoneFlow_MC21_DS70297mc_EOC_Phone_Flow_CreateEOC_MC21_CADAP_Pharmacy_ODEFSEY_Pharmacy_AORFormReceived_No_Urgency_No_Approved_InitialPrimary_Phone_ADAP'. Using default category 'Unknown'
+2026-04-23 23:00:05,491 | INFO | No match found for test 'TS103238_Global_SH_DS70904_CreateEOCPhoneFlow_SelectHealthselecthealth_EOC_Phone_Flow_SH_CommercialUtah_Pharmacy_COMBIPATCH_Prescriber_AORFormReceived_No_Urgency_No_Denied_InitialPrimary_Fax_COM_MED'. Using default category 'Unknown'
+2026-04-23 23:00:05,496 | INFO | No match found for test 'TS103250_Global_IngenioRx_DS54926_MemberCallBackQueue_Flow_Member Call Back_Remove Member CallBack Queue as Setup Rule Attempts_Queue Manager_Medica'. Using default category 'Unknown'
+2026-04-23 23:00:05,501 | INFO | No match found for test 'TS103250_Global_IngenioRx_DS54924_MemberCallBackQueue_Flow_Member Call Back_Filter_View_Time Elapsing_Export to Excel'. Using default category 'Unknown'
+2026-04-23 23:00:05,507 | INFO | No match found for test 'TS104411_Global_SH_DS44760_RphSignoffWorkflow_TestCase11Rph_Filter All_Denied_AgreeDecision_Yes'. Using default category 'Unknown'
+2026-04-23 23:00:05,510 | INFO | No match found for test 'TS104416_Global_Point32Health_DS44838_RphSignoffWorkflow_TestCase16Rph_Filter All_Denied_AgreeDecision_Yes'. Using default category 'Unknown'
+2026-04-23 23:00:05,518 | INFO | No match found for test 'TS99724_Global_Humana_DS10280_SubmitNotification_Workflow_EOC_Notifications_Filter_Finalize_Notification_Continue_this_EOC_EOC_Summary'. Using default category 'Unknown'
+2026-04-23 23:00:05,521 | INFO | No match found for test 'TS99724_Global_IngenioRx_DS95008_SubmitNotification_Workflow_EOC Notifications-Filter-Finalize Notifications-Continue this EOC_EOC Summary_Notifications_ValidateOutboundCallMade'. Using default category 'Unknown'
+2026-04-23 23:00:05,525 | INFO | No match found for test 'TS103030_Global_Geisinger_DS30213_SubmitNotification_Workflow2_EOC Notifications-Filter-Finalize Notifications-Get Next'. Using default category 'Unknown'
+2026-04-23 23:00:05,529 | INFO | No match found for test 'TS103030_Global_SH_DS29970_SubmitNotification_Workflow2_EOC Notifications-Filter-Finalize Notifications-Get Next'. Using default category 'Unknown'
+2026-04-23 23:00:05,537 | INFO | No match found for test 'TS99724_Global_KaiserPermanente_DS30071_SubmitNotification_Workflow_EOC Notifications-Filter-Finalize Notifications-Continue this EOC_EOC Summary'. Using default category 'Unknown'
+2026-04-23 23:00:05,544 | INFO | No match found for test 'TS103030_Global_Point32Health_DS29989_SubmitNotification_Workflow2_EOC Notifications-Filter-Finalize Notifications-Exit Queue'. Using default category 'Unknown'
+2026-04-23 23:00:05,552 | INFO | No match found for test 'TS103033_Global_MedOne_DS30412_SubmitNotification_Workflow4_EOC Notifications-Filter-Finalize Notifications-Exit Queue'. Using default category 'Unknown'
+2026-04-23 23:00:05,558 | INFO | No match found for test 'TS102146_Global_SouthernScripts_DS71585_CreateEOCPhoneFlow_SScriptsSScripts_EOC_Phone_Flow_CreateEOC_SouthernScripts_OLP-RxCompass_Pharmacy_OZEMPIC__AORFormReceived_No_Urgency_No_Approved_InitialPrimary_Fax_All'. Using default category 'Unknown'
+2026-04-23 23:00:05,558 | INFO | Categorized 35 failed test(s) into 2 category bucket(s)
+2026-04-23 23:00:05,579 | INFO | Wrote categorization output to D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_225958\report_failure_categorization.json
+2026-04-23 23:00:05,583 | INFO | Stage 3/3: Starting Excel generation
+2026-04-23 23:00:05,588 | INFO | Reading categorization JSON: D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_225958\report_failure_categorization.json
+2026-04-23 23:00:05,824 | INFO | Saved Excel workbook to D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_225958\report_failure_categorization.xlsx
+2026-04-23 23:00:05,826 | INFO | Pipeline completed successfully

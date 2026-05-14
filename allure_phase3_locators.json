@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "report_type": "allure",
+    "description": "XPath locators required by the Phase 3 Allure failure details extractor."
+  },
+  "timeouts": {
+    "navigation_timeout_ms": 120000,
+    "default_timeout_ms": 120000,
+    "initial_report_wait_ms": 3000,
+    "after_overview_click_wait_ms": 1000,
+    "after_suites_click_wait_ms": 2000,
+    "after_suite_click_wait_ms": 500,
+    "after_branch_click_wait_ms": 300,
+    "after_failed_leaf_click_wait_ms": 300
+  },
+  "overview": {
+    "overview_section_xpath": "//a[contains(@href, '#overview') or .//*[normalize-space()='Overview'] or normalize-space()='Overview']",
+    "total_test_count_xpath": "//div[contains(@class,'summary-widget')]//div[@class='splash__title']"
+  },
+  "suites": {
+    "suites_section_xpath": "//a[contains(@href, '#suites') or .//*[normalize-space()='Suites'] or normalize-space()='Suites']",
+    "top_level_suite_xpath": "//div[@class='side-by-side__left']//div[@class='node']//div[@class='node__name'][not(ancestor::div[@class='node__children'])]",
+    "top_level_suite_fallback_xpath": "//*[contains(concat(' ', normalize-space(@class), ' '), ' tree__node ') and not(ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' tree__children ')])]",
+    "top_level_suite_node_xpath": "//div[@class='side-by-side__left']//div[contains(concat(' ', normalize-space(@class), ' '), ' node ')][./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')][.//div[@class='node__name']]][not(ancestor::div[@class='node__children'])]"
+  },
+  "relative_node": {
+    "direct_node_title_xpath": "./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')]",
+    "direct_node_name_xpath": "./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')]//div[@class='node__name']",
+    "direct_failed_label_xpath": "./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')]//span[contains(@class, 'label_status_failed')]"
+  },
+  "failed_test_tree": {
+    "collapsed_failed_branch_relative_xpath": ".//div[contains(concat(' ', normalize-space(@class), ' '), ' node ')][not(contains(concat(' ', normalize-space(@class), ' '), ' node__expanded '))][./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')][.//span[contains(@class, 'label_status_failed')]]]",
+    "failed_leaf_test_relative_xpath": ".//a[contains(concat(' ', normalize-space(@class), ' '), ' node__leaf ')][.//span[contains(translate(@class, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'text_status_failed')]]",
+    "failed_leaf_test_case_name_relative_xpath": ".//div[@class='node__name']",
+    "failed_leaf_parent_test_name_relative_xpath": "./ancestor::div[contains(concat(' ', normalize-space(@class), ' '), ' node ')][./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')]][1]/div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')]//div[@class='node__name']",
+    "failed_leaf_status_relative_xpath": ".//span[contains(translate(@class, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'text_status_failed')]"
+  },
+  "right_panel": {
+    "failed_test_name_loaded_xpath_template": "//div[contains(concat(' ', normalize-space(@class), ' '), ' side-by-side__right ')]//*[contains(concat(' ', normalize-space(@class), ' '), ' test-result__name ')]//*[normalize-space(.)={failed_test_case_name_literal}]",
+    "status_message_xpath": "//div[contains(concat(' ', normalize-space(@class), ' '), ' side-by-side__right ')]//pre[contains(concat(' ', normalize-space(@class), ' '), ' status-details__message ')]",
+    "status_trace_xpath": "//div[contains(concat(' ', normalize-space(@class), ' '), ' side-by-side__right ')]//pre[contains(concat(' ', normalize-space(@class), ' '), ' status-details__trace ')]"
+  }
+}

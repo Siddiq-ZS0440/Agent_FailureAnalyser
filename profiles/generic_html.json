@@ -1,0 +1,67 @@
+{
+  "profile_name": "generic_html",
+  "priority": 999,
+  "detection": {
+    "contains_text": [],
+    "xpaths": []
+  },
+  "report": {
+    "name": {
+      "xpaths": [
+        "normalize-space(//title)",
+        "normalize-space(//h1[1])"
+      ],
+      "default": "Generic HTML Report"
+    }
+  },
+  "records": {
+    "root_xpath": "//*[contains(translate(@class,'FAIL','fail'),'fail') or @status='fail' or @data-status='failed' or contains(translate(text(),'FAIL','fail'),'fail')]",
+    "filter": {
+      "field": "status",
+      "operator": "contains_ignore_case",
+      "value": "fail"
+    },
+    "fields": {
+      "test_name": {
+        "xpaths": [
+          "normalize-space(.//h1[1])",
+          "normalize-space(.//h2[1])",
+          "normalize-space(.//h3[1])",
+          "normalize-space(.//a[1])",
+          "normalize-space(.//span[1])",
+          "normalize-space(.)"
+        ],
+        "default": "UNKNOWN_TEST"
+      },
+      "status": {
+        "xpaths": [
+          "normalize-space(./@status)",
+          "normalize-space(./@data-status)",
+          "normalize-space(.//*[contains(translate(@class,'FAIL','fail'),'fail')][1])",
+          "normalize-space(.)"
+        ],
+        "default": "fail"
+      },
+      "failure_message": {
+        "xpaths": [
+          "normalize-space(.//pre[1])",
+          "normalize-space(.//textarea[1])",
+          "normalize-space(.//code[1])",
+          "normalize-space(.)"
+        ]
+      },
+      "stack_trace": {
+        "xpaths": [
+          "normalize-space(.//pre[1])",
+          "normalize-space(.//textarea[1])",
+          "normalize-space(.//code[1])"
+        ]
+      }
+    },
+    "total_test_count": {
+      "xpaths": [
+        "normalize-space(count(//*[(@status='pass' or @status='fail' or @data-status='passed' or @data-status='failed') and (contains(@class,'test') or contains(@class,'item') or contains(@class,'row'))]))"
+      ]
+    }
+  }
+}

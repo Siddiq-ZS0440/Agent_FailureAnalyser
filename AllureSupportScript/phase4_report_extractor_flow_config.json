@@ -1,0 +1,578 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Data-driven report failure extractor generation. All report-specific flow instructions, locators, variable names, and string operations live in this JSON.",
+  "generator_contract": {
+    "description": "The generator must not assume report-specific method names, locator names, or variable names. It only writes imports, constants, function blocks, and execution lines provided by the selected report type.",
+    "required_keys_per_report_type": [
+      "instructions",
+      "script_blueprint"
+    ],
+    "future_report_type_rule": "Add another entry under report_types with the same standard keys: instructions and script_blueprint. The generator will emit whatever that entry defines."
+  },
+  "report_types": {
+    "allure": {
+      "description": "Extract total test count and failed test details from an Allure single HTML report.",
+      "instructions": [
+        {
+          "step_id": "01_open_report",
+          "instruction": "Open the given local HTML report in Playwright headed mode and wait for DOMContentLoaded plus visible body.",
+          "locators": [
+            {
+              "name": "body",
+              "strategy": "xpath",
+              "value": "//body",
+              "wait": "visible"
+            }
+          ],
+          "string_manipulation": [],
+          "generated_functions_used": [
+            "get_report_url",
+            "wait_for_report_to_load"
+          ]
+        },
+        {
+          "step_id": "02_capture_total_test_count",
+          "instruction": "While the report is still on Overview, wait for the total test count element and capture its text.",
+          "locators": [
+            {
+              "name": "OVERVIEW_TOTAL_TEST_COUNT_XPATH",
+              "strategy": "xpath",
+              "value": "//div[contains(@class,'summary-widget')]//div[@class='splash__title']",
+              "wait": "visible"
+            }
+          ],
+          "string_manipulation": [
+            {
+              "operation": "extract_first_integer",
+              "input": "overview total-count text",
+              "output": "total_test_count"
+            }
+          ],
+          "generated_functions_used": [
+            "capture_total_test_count_from_overview",
+            "extract_first_int"
+          ]
+        },
+        {
+          "step_id": "03_open_suites_section",
+          "instruction": "Find the Suites section from the report navigation and click it if present.",
+          "locators": [
+            {
+              "name": "SUITES_SECTION_XPATH",
+              "strategy": "xpath",
+              "value": "//a[contains(@href, '#suites') or .//*[normalize-space()='Suites'] or normalize-space()='Suites']",
+              "wait": "visible"
+            }
+          ],
+          "string_manipulation": [],
+          "generated_functions_used": [
+            "open_suites_section_if_present"
+          ]
+        },
+        {
+          "step_id": "04_iterate_top_level_suites",
+          "instruction": "Get all top-level suite elements, then read suite name and determine whether the suite has a failed label.",
+          "locators": [
+            {
+              "name": "TOP_LEVEL_SUITE_XPATH",
+              "strategy": "xpath",
+              "value": "//div[@class='side-by-side__left']//div[contains(concat(' ', normalize-space(@class), ' '), ' node ')][./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')]//div[@class='node__name'] and not(ancestor::div[contains(concat(' ', normalize-space(@class), ' '), ' node__children ')])]"
+            },
+            {
+              "name": "SUITE_NAME_RELATIVE_XPATH",
+              "strategy": "relative xpath",
+              "value": "./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')][1]//div[@class='node__name']"
+            },
+            {
+              "name": "SUITE_FAILED_LABEL_RELATIVE_XPATH",
+              "strategy": "relative xpath",
+              "value": "./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')][1]//span[contains(@class, 'label_status_failed')]"
+            }
+          ],
+          "string_manipulation": [
+            {
+              "operation": "clean_text",
+              "input": "suite node__name inner text",
+              "output": "suite_name"
+            }
+          ],
+          "generated_functions_used": [
+            "collect_failed_tests"
+          ]
+        },
+        {
+          "step_id": "05_expand_failed_suite_groups",
+          "instruction": "For each failed suite, click the suite and repeatedly expand collapsed failed grouping nodes until failed leaf test cases are visible.",
+          "locators": [
+            {
+              "name": "FAILED_GROUP_TITLE_RELATIVE_XPATH",
+              "strategy": "relative xpath",
+              "value": ".//div[contains(concat(' ', normalize-space(@class), ' '), ' node ') and not(contains(concat(' ', normalize-space(@class), ' '), ' node__expanded '))]/div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')][.//span[contains(@class, 'label_status_failed')]]"
+            }
+          ],
+          "string_manipulation": [],
+          "generated_functions_used": [
+            "expand_failed_groups_under_suite"
+          ]
+        },
+        {
+          "step_id": "06_find_actual_failed_leaf_tests",
+          "instruction": "Inside the expanded suite, count only actual failed test cases: anchor elements with class node__leaf and child span class text_status_failed.",
+          "locators": [
+            {
+              "name": "FAILED_LEAF_TEST_RELATIVE_XPATH",
+              "strategy": "relative xpath",
+              "value": ".//a[contains(concat(' ', normalize-space(@class), ' '), ' node__leaf ')][.//span[contains(translate(@class, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'text_status_failed')]]"
+            }
+          ],
+          "string_manipulation": [],
+          "generated_functions_used": [
+            "collect_failed_tests"
+          ]
+        },
+        {
+          "step_id": "07_capture_names_for_json",
+          "instruction": "For each failed leaf, capture parent failed test name and leaf failed test case name, then concatenate suite name, test name, and test case name into output test_name.",
+          "locators": [
+            {
+              "name": "FAILED_TEST_NAME_FROM_LEAF_RELATIVE_XPATH",
+              "strategy": "relative xpath",
+              "value": "./ancestor::div[contains(concat(' ', normalize-space(@class), ' '), ' node ')][1]/div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')]//div[contains(concat(' ', normalize-space(@class), ' '), ' node__name ')]"
+            },
+            {
+              "name": "FAILED_TEST_CASE_NAME_RELATIVE_XPATH",
+              "strategy": "relative xpath",
+              "value": ".//div[contains(concat(' ', normalize-space(@class), ' '), ' node__name ')]"
+            }
+          ],
+          "string_manipulation": [
+            {
+              "operation": "clean_text",
+              "input": "captured suite/test/test-case names",
+              "output": "normalized names"
+            },
+            {
+              "operation": "concatenate",
+              "format": "{suite_name} > {failed_test_name} > {failed_test_case_name}",
+              "output": "failed_test_list[].test_name"
+            }
+          ],
+          "generated_functions_used": [
+            "build_failed_test_output_name"
+          ]
+        },
+        {
+          "step_id": "08_click_leaf_and_wait_for_right_panel",
+          "instruction": "Click each failed leaf test case, then wait until that exact failed test case name is visible in the right-side test-result name.",
+          "locators": [
+            {
+              "name": "RIGHT_TEST_NAME_TEMPLATE_XPATH",
+              "strategy": "xpath template",
+              "value": "//div[contains(concat(' ', normalize-space(@class), ' '), ' side-by-side__right ')]//*[contains(concat(' ', normalize-space(@class), ' '), ' test-result__name ')]//*[normalize-space(.)={test_case_name}]"
+            }
+          ],
+          "string_manipulation": [
+            {
+              "operation": "xpath_literal",
+              "input": "failed_test_case_name",
+              "output": "safe XPath text literal"
+            }
+          ],
+          "generated_functions_used": [
+            "wait_for_failed_test_in_right_panel"
+          ]
+        },
+        {
+          "step_id": "09_capture_failure_message_and_trace",
+          "instruction": "From the right-side content, capture status-details__message, click it to reveal trace, then capture status-details__trace.",
+          "locators": [
+            {
+              "name": "RIGHT_STATUS_MESSAGE_XPATH",
+              "strategy": "xpath",
+              "value": "//div[contains(concat(' ', normalize-space(@class), ' '), ' side-by-side__right ')]//pre[contains(concat(' ', normalize-space(@class), ' '), ' status-details__message ')]",
+              "action": "read_text_then_click"
+            },
+            {
+              "name": "RIGHT_STATUS_TRACE_XPATH",
+              "strategy": "xpath",
+              "value": "//div[contains(concat(' ', normalize-space(@class), ' '), ' side-by-side__right ')]//pre[contains(concat(' ', normalize-space(@class), ' '), ' status-details__trace ')]",
+              "action": "read_text"
+            }
+          ],
+          "string_manipulation": [
+            {
+              "operation": "clean_text",
+              "input": "failure message and stack trace",
+              "output": "JSON-safe compact text"
+            }
+          ],
+          "generated_functions_used": [
+            "get_failure_details_from_right_panel"
+          ]
+        },
+        {
+          "step_id": "10_write_json_output",
+          "instruction": "Write source file metadata, total_test_count, failed_test_count, and failed_test_list to JSON.",
+          "locators": [],
+          "string_manipulation": [
+            {
+              "operation": "json_serialize",
+              "options": {
+                "indent": 2,
+                "ensure_ascii": false
+              }
+            }
+          ],
+          "generated_functions_used": [
+            "write_json_output"
+          ]
+        }
+      ],
+      "script_blueprint": {
+        "imports": [
+          "import json",
+          "import re",
+          "import sys",
+          "from pathlib import Path",
+          "from playwright.sync_api import Page, TimeoutError as PlaywrightTimeoutError, sync_playwright"
+        ],
+        "constants": [
+          {
+            "name": "NAVIGATION_TIMEOUT_MS",
+            "value": 120000
+          },
+          {
+            "name": "DEFAULT_TIMEOUT_MS",
+            "value": 120000
+          },
+          {
+            "name": "SHORT_WAIT_MS",
+            "value": 500
+          },
+          {
+            "name": "REPORT_TYPE",
+            "value": "allure"
+          },
+          {
+            "name": "REPORT_NAME",
+            "value": "Allure Report"
+          },
+          {
+            "name": "SUITES_SECTION_XPATH",
+            "value": "//a[contains(@href, '#suites') or .//*[normalize-space()='Suites'] or normalize-space()='Suites']"
+          },
+          {
+            "name": "OVERVIEW_TOTAL_TEST_COUNT_XPATH",
+            "value": "//div[contains(@class,'summary-widget')]//div[@class='splash__title']"
+          },
+          {
+            "name": "TOP_LEVEL_SUITE_XPATH",
+            "value": "//div[@class='side-by-side__left']//div[contains(concat(' ', normalize-space(@class), ' '), ' node ')][./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')]//div[@class='node__name'] and not(ancestor::div[contains(concat(' ', normalize-space(@class), ' '), ' node__children ')])]"
+          },
+          {
+            "name": "SUITE_NAME_RELATIVE_XPATH",
+            "value": "./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')][1]//div[@class='node__name']"
+          },
+          {
+            "name": "SUITE_FAILED_LABEL_RELATIVE_XPATH",
+            "value": "./div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')][1]//span[contains(@class, 'label_status_failed')]"
+          },
+          {
+            "name": "FAILED_GROUP_TITLE_RELATIVE_XPATH",
+            "value": ".//div[contains(concat(' ', normalize-space(@class), ' '), ' node ') and not(contains(concat(' ', normalize-space(@class), ' '), ' node__expanded '))]/div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')][.//span[contains(@class, 'label_status_failed')]]"
+          },
+          {
+            "name": "FAILED_LEAF_TEST_RELATIVE_XPATH",
+            "value": ".//a[contains(concat(' ', normalize-space(@class), ' '), ' node__leaf ')][.//span[contains(translate(@class, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'text_status_failed')]]"
+          },
+          {
+            "name": "FAILED_TEST_NAME_FROM_LEAF_RELATIVE_XPATH",
+            "value": "./ancestor::div[contains(concat(' ', normalize-space(@class), ' '), ' node ')][1]/div[contains(concat(' ', normalize-space(@class), ' '), ' node__title ')]//div[contains(concat(' ', normalize-space(@class), ' '), ' node__name ')]"
+          },
+          {
+            "name": "FAILED_TEST_CASE_NAME_RELATIVE_XPATH",
+            "value": ".//div[contains(concat(' ', normalize-space(@class), ' '), ' node__name ')]"
+          },
+          {
+            "name": "RIGHT_TEST_NAME_TEMPLATE_XPATH",
+            "value": "//div[contains(concat(' ', normalize-space(@class), ' '), ' side-by-side__right ')]//*[contains(concat(' ', normalize-space(@class), ' '), ' test-result__name ')]//*[normalize-space(.)={test_case_name}]"
+          },
+          {
+            "name": "RIGHT_STATUS_MESSAGE_XPATH",
+            "value": "//div[contains(concat(' ', normalize-space(@class), ' '), ' side-by-side__right ')]//pre[contains(concat(' ', normalize-space(@class), ' '), ' status-details__message ')]"
+          },
+          {
+            "name": "RIGHT_STATUS_TRACE_XPATH",
+            "value": "//div[contains(concat(' ', normalize-space(@class), ' '), ' side-by-side__right ')]//pre[contains(concat(' ', normalize-space(@class), ' '), ' status-details__trace ')]"
+          }
+        ],
+        "function_blocks": [
+          {
+            "name": "xpath_literal",
+            "purpose": "Convert dynamic text into a safe XPath literal so names with quotes can be used in XPath comparisons.",
+            "code": [
+              "def xpath_literal(text: str) -> str:",
+              "    if \"'\" not in text:",
+              "        return f\"'{text}'\"",
+              "    if '\"' not in text:",
+              "        return f'\"{text}\"'",
+              "    parts = text.split(\"'\")",
+              "    return \"concat(\" + \", \\\"'\\\", \".join(f\"'{part}'\" for part in parts) + \")\""
+            ]
+          },
+          {
+            "name": "clean_text",
+            "purpose": "Normalize text captured from the report by replacing non-breaking spaces and collapsing repeated whitespace.",
+            "code": [
+              "def clean_text(value: str) -> str:",
+              "    value = value or ''",
+              "    value = value.replace('\\xa0', ' ')",
+              "    value = re.sub(r'\\s+', ' ', value)",
+              "    return value.strip()"
+            ]
+          },
+          {
+            "name": "extract_first_int",
+            "purpose": "Extract the first integer from Overview total-count text such as '143 tests'.",
+            "code": [
+              "def extract_first_int(value: str) -> int:",
+              "    match = re.search(r'\\d+', value or '')",
+              "    if match:",
+              "        return int(match.group(0))",
+              "    return 0"
+            ]
+          },
+          {
+            "name": "get_report_url",
+            "purpose": "Convert the local HTML path into a file:// URL for Playwright.",
+            "code": [
+              "def get_report_url(html_file_path: str) -> str:",
+              "    html_path = Path(html_file_path)",
+              "    if not html_path.exists():",
+              "        raise FileNotFoundError(f'HTML report not found: {html_path}')",
+              "    return html_path.resolve().as_uri()"
+            ]
+          },
+          {
+            "name": "get_optional_text_from_locator",
+            "purpose": "Safely read text from a Playwright locator. Return empty string if the locator is missing.",
+            "code": [
+              "def get_optional_text_from_locator(locator) -> str:",
+              "    try:",
+              "        if locator.count() == 0:",
+              "            return ''",
+              "        return clean_text(locator.first.inner_text(timeout=DEFAULT_TIMEOUT_MS))",
+              "    except PlaywrightTimeoutError:",
+              "        return ''"
+            ]
+          },
+          {
+            "name": "get_optional_text_from_page",
+            "purpose": "Safely read text from the page using an XPath locator.",
+            "code": [
+              "def get_optional_text_from_page(page: Page, xpath: str) -> str:",
+              "    return get_optional_text_from_locator(page.locator(f'xpath={xpath}'))"
+            ]
+          },
+          {
+            "name": "wait_for_report_to_load",
+            "purpose": "Wait for the basic HTML body after domcontentloaded.",
+            "code": [
+              "def wait_for_report_to_load(page: Page) -> None:",
+              "    page.wait_for_selector('xpath=//body', state='visible', timeout=DEFAULT_TIMEOUT_MS)",
+              "    page.wait_for_timeout(3000)"
+            ]
+          },
+          {
+            "name": "capture_total_test_count_from_overview",
+            "purpose": "Use the Overview summary-widget splash title locator to capture total test count.",
+            "code": [
+              "def capture_total_test_count_from_overview(page: Page) -> int:",
+              "    total_count_locator = page.locator(f'xpath={OVERVIEW_TOTAL_TEST_COUNT_XPATH}').first",
+              "    total_count_locator.wait_for(state='visible', timeout=DEFAULT_TIMEOUT_MS)",
+              "    total_count_text = clean_text(total_count_locator.inner_text(timeout=DEFAULT_TIMEOUT_MS))",
+              "    total_test_count = extract_first_int(total_count_text)",
+              "    print(f'Total test count: {total_test_count}')",
+              "    return total_test_count"
+            ]
+          },
+          {
+            "name": "open_suites_section_if_present",
+            "purpose": "Open the Suites tab/section if it exists.",
+            "code": [
+              "def open_suites_section_if_present(page: Page) -> bool:",
+              "    suites_section = page.locator(f'xpath={SUITES_SECTION_XPATH}').first",
+              "    try:",
+              "        suites_section.wait_for(state='visible', timeout=DEFAULT_TIMEOUT_MS)",
+              "    except PlaywrightTimeoutError:",
+              "        return False",
+              "    suites_section.click()",
+              "    page.wait_for_timeout(2000)",
+              "    return True"
+            ]
+          },
+          {
+            "name": "expand_failed_groups_under_suite",
+            "purpose": "Expand failed grouping nodes under a suite until failed leaf test cases are visible.",
+            "code": [
+              "def expand_failed_groups_under_suite(page: Page, suite_element) -> None:",
+              "    for _ in range(50):",
+              "        collapsed_failed_group_title = suite_element.locator(f'xpath={FAILED_GROUP_TITLE_RELATIVE_XPATH}').first",
+              "        if collapsed_failed_group_title.count() == 0:",
+              "            break",
+              "        collapsed_failed_group_title.click(timeout=DEFAULT_TIMEOUT_MS)",
+              "        page.wait_for_timeout(SHORT_WAIT_MS)"
+            ]
+          },
+          {
+            "name": "wait_for_failed_test_in_right_panel",
+            "purpose": "After clicking a failed leaf test case, wait until that exact test case name appears in the right panel.",
+            "code": [
+              "def wait_for_failed_test_in_right_panel(page: Page, failed_test_case_name: str) -> None:",
+              "    failed_test_case_name_literal = xpath_literal(failed_test_case_name)",
+              "    right_test_name_xpath = RIGHT_TEST_NAME_TEMPLATE_XPATH.format(test_case_name=failed_test_case_name_literal)",
+              "    page.wait_for_selector(f'xpath={right_test_name_xpath}', state='visible', timeout=DEFAULT_TIMEOUT_MS)"
+            ]
+          },
+          {
+            "name": "get_failure_details_from_right_panel",
+            "purpose": "Read the failure message, click it to reveal stack trace, then read stack trace.",
+            "code": [
+              "def get_failure_details_from_right_panel(page: Page) -> tuple[str, str]:",
+              "    message_locator = page.locator(f'xpath={RIGHT_STATUS_MESSAGE_XPATH}').first",
+              "    message_locator.wait_for(state='visible', timeout=DEFAULT_TIMEOUT_MS)",
+              "    failure_message = clean_text(message_locator.inner_text(timeout=DEFAULT_TIMEOUT_MS))",
+              "    message_locator.click(timeout=DEFAULT_TIMEOUT_MS)",
+              "    page.wait_for_timeout(SHORT_WAIT_MS)",
+              "    failure_trace = get_optional_text_from_page(page, RIGHT_STATUS_TRACE_XPATH)",
+              "    return failure_message, failure_trace"
+            ]
+          },
+          {
+            "name": "build_failed_test_output_name",
+            "purpose": "Concatenate suite name, test name, and test case name into the single test_name field for JSON output.",
+            "code": [
+              "def build_failed_test_output_name(suite_name: str, failed_test_name: str, failed_test_case_name: str) -> str:",
+              "    return clean_text(f'{suite_name} > {failed_test_name} > {failed_test_case_name}')"
+            ]
+          },
+          {
+            "name": "collect_failed_tests",
+            "purpose": "Traverse each suite, expand failed groups, click failed leaf tests, and collect failure details.",
+            "code": [
+              "def collect_failed_tests(page: Page) -> list[dict]:",
+              "    failed_test_list = []",
+              "    suite_elements = page.locator(f'xpath={TOP_LEVEL_SUITE_XPATH}')",
+              "    suite_count = suite_elements.count()",
+              "    print(f'Suite count: {suite_count}')",
+              "",
+              "    for suite_index in range(suite_count):",
+              "        suite_element = suite_elements.nth(suite_index)",
+              "        suite_name = get_optional_text_from_locator(suite_element.locator(f'xpath={SUITE_NAME_RELATIVE_XPATH}'))",
+              "        has_failed_label = suite_element.locator(f'xpath={SUITE_FAILED_LABEL_RELATIVE_XPATH}').count() > 0",
+              "        if not has_failed_label:",
+              "            continue",
+              "",
+              "        print(f'Suite name: {suite_name}')",
+              "        suite_element.locator(f'xpath={SUITE_NAME_RELATIVE_XPATH}').first.click(timeout=DEFAULT_TIMEOUT_MS)",
+              "        page.wait_for_timeout(SHORT_WAIT_MS)",
+              "        expand_failed_groups_under_suite(page, suite_element)",
+              "",
+              "        failed_leaf_tests = suite_element.locator(f'xpath={FAILED_LEAF_TEST_RELATIVE_XPATH}')",
+              "        failed_leaf_count = failed_leaf_tests.count()",
+              "        print(f\"Failed test count in suite '{suite_name}': {failed_leaf_count}\")",
+              "",
+              "        for failed_leaf_index in range(failed_leaf_count):",
+              "            failed_leaf = failed_leaf_tests.nth(failed_leaf_index)",
+              "            failed_test_name = get_optional_text_from_locator(failed_leaf.locator(f'xpath={FAILED_TEST_NAME_FROM_LEAF_RELATIVE_XPATH}'))",
+              "            failed_test_case_name = get_optional_text_from_locator(failed_leaf.locator(f'xpath={FAILED_TEST_CASE_NAME_RELATIVE_XPATH}'))",
+              "            print(f'  Failed test case: {failed_test_case_name}')",
+              "",
+              "            failed_leaf.click(timeout=DEFAULT_TIMEOUT_MS)",
+              "            wait_for_failed_test_in_right_panel(page, failed_test_case_name)",
+              "            failure_message, failure_trace = get_failure_details_from_right_panel(page)",
+              "",
+              "            failed_test_list.append({",
+              "                'test_name': build_failed_test_output_name(suite_name, failed_test_name, failed_test_case_name),",
+              "                'status': 'Failed',",
+              "                'failure_message': failure_message,",
+              "                'stack_trace': failure_trace,",
+              "            })",
+              "",
+              "    return failed_test_list"
+            ]
+          },
+          {
+            "name": "write_json_output",
+            "purpose": "Write final report failure details JSON.",
+            "code": [
+              "def write_json_output(html_file_path: str, output_json_path: str, total_test_count: int, failed_test_list: list[dict]) -> None:",
+              "    html_path = Path(html_file_path).resolve()",
+              "    output = {",
+              "        'source_html_file': html_path.name,",
+              "        'source_html_path': str(html_path),",
+              "        'report_type': REPORT_TYPE,",
+              "        'report_name': REPORT_NAME,",
+              "        'total_test_count': total_test_count,",
+              "        'failed_test_count': len(failed_test_list),",
+              "        'failed_test_list': failed_test_list,",
+              "    }",
+              "",
+              "    output_path = Path(output_json_path)",
+              "    output_path.parent.mkdir(parents=True, exist_ok=True)",
+              "    output_path.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding='utf-8')",
+              "    print(f'Failed test count: {len(failed_test_list)}')",
+              "    print(f'JSON output written to: {output_path}')"
+            ]
+          },
+          {
+            "name": "main",
+            "purpose": "Read command-line arguments, open report, extract details, and write JSON output.",
+            "code": [
+              "def main() -> None:",
+              "    if len(sys.argv) < 2:",
+              "        raise ValueError('Usage: python generated_allure_extractor.py <Allure_Report.html> [output.json]')",
+              "",
+              "    html_file_path = sys.argv[1]",
+              "    output_json_path = sys.argv[2] if len(sys.argv) >= 3 else str(Path(html_file_path).with_name('allure_failure_details.json'))",
+              "    report_url = get_report_url(html_file_path)",
+              "",
+              "    with sync_playwright() as playwright:",
+              "        browser = playwright.chromium.launch(headless=False)",
+              "        page = browser.new_page(viewport={'width': 1440, 'height': 900})",
+              "        page.set_default_timeout(DEFAULT_TIMEOUT_MS)",
+              "        page.set_default_navigation_timeout(NAVIGATION_TIMEOUT_MS)",
+              "",
+              "        try:",
+              "            page.goto(report_url, wait_until='domcontentloaded', timeout=NAVIGATION_TIMEOUT_MS)",
+              "            wait_for_report_to_load(page)",
+              "            total_test_count = capture_total_test_count_from_overview(page)",
+              "",
+              "            is_suite_section_present = open_suites_section_if_present(page)",
+              "            if not is_suite_section_present:",
+              "                print('Suite section present: No')",
+              "                failed_test_list = []",
+              "            else:",
+              "                print('Suite section present: Yes')",
+              "                failed_test_list = collect_failed_tests(page)",
+              "",
+              "            write_json_output(html_file_path, output_json_path, total_test_count, failed_test_list)",
+              "",
+              "        except PlaywrightTimeoutError as error:",
+              "            print('Timed out while opening or reading the report.')",
+              "            print(f'Error details: {error}')",
+              "            raise",
+              "        finally:",
+              "            browser.close()",
+              "",
+              "",
+              "if __name__ == '__main__':",
+              "    main()"
+            ]
+          }
+        ],
+        "entrypoint": "main"
+      }
+    }
+  }
+}

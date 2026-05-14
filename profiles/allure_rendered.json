@@ -1,0 +1,59 @@
+{
+  "profile_name": "allure_html",
+  "priority": 15,
+  "detection": {
+    "contains_text": [
+      "allureVersion",
+      "single_file",
+      "reportDataReady"
+    ],
+    "xpaths": [
+      "//title[contains(translate(., 'ALLURE', 'allure'), 'allure')]"
+    ]
+  },
+  "report": {
+    "name": {
+      "xpaths": [
+        "normalize-space(//title)"
+      ],
+      "default": "Allure Report"
+    }
+  },
+  "records": {
+    "root_xpath": "//a[contains(@class,'node__leaf')][.//span[contains(@class,'text_status_failed')]]",
+    "failed_test_count": {
+      "xpaths": [
+        "normalize-space(count(//a[contains(@class,'node__leaf')][.//span[contains(@class,'text_status_failed')]]))"
+      ]
+    },
+    "filter": {
+      "field": "status",
+      "operator": "contains_ignore_case",
+      "value": "fail"
+    },
+    "fields": {
+      "test_name": {
+        "xpaths": [
+          "normalize-space(.//div[contains(@class,'node__name')])"
+        ]
+      },
+      "status": {
+        "xpaths": [
+          "'failed'"
+        ],
+        "default": "failed"
+    },
+      "failure_message": {
+        "xpaths": []
+      },
+      "stack_trace": {
+        "xpaths": []
+      }
+        },
+    "total_test_count": {
+          "xpaths": [
+        "normalize-space(count(//a[contains(@class,'node__leaf')]))"
+          ]
+        }
+      }
+    }

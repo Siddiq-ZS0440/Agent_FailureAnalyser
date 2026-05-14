@@ -1,0 +1,87 @@
+{
+  "profile_name": "testng_custom",
+  "priority": 10,
+  "detection": {
+    "contains_text": [
+      "TestNG Customized Report",
+      "TestNG Report",
+      "easy-test-overview"
+    ],
+    "xpaths": [
+      "//table[contains(@class,'easy-overview')]",
+      "//div[contains(@class,'easy-test-overview')]"
+    ]
+  },
+  "report": {
+    "name": {
+      "xpaths": [
+        "normalize-space((//center/h1)[1])",
+        "normalize-space(//title)"
+      ],
+      "default": "TestNG Report"
+    }
+  },
+  "records": {
+    "root_xpath": "//div[contains(@class,'easy-test-overview')]//table[contains(@class,'easy-overview')]//tr[td]",
+    "failed_test_count": {
+      "xpaths": [
+        "normalize-space((//div[contains(@class,'easy-test-overview')]//table[contains(@class,'easy-overview')]//tr[2]/th[17])[1])"
+      ]
+    },
+    "filter": {
+      "field": "status",
+      "operator": "equals_ignore_case",
+      "value": "Failed"
+    },
+    "fields": {
+      "test_name": {
+        "xpaths": [
+          "normalize-space(./td[1])"
+        ]
+      },
+      "status": {
+        "xpaths": [
+          "normalize-space(./td[5])"
+        ]
+      }
+    },
+    "detail_context": {
+      "link_xpath": "normalize-space(./td[1]//a/@href)",
+      "transforms": [
+        {
+          "type": "strip_prefix",
+          "value": "#"
+        },
+        {
+          "type": "replace_regex",
+          "pattern": "^t",
+          "replacement": "m"
+        }
+      ],
+      "target_xpath_templates": [
+        "//*[@id='{value}']/following-sibling::table[1]"
+      ]
+    },
+    "detail_fields": {
+      "failure_message": {
+        "xpaths": [
+          "normalize-space((.//div[contains(@class,'messages') and contains(translate(.,'FAILED','failed'),'failed')])[1])",
+          "normalize-space((.//div[contains(@class,'messages') and contains(translate(.,'ERROR','error'),'error')])[1])",
+          "normalize-space((.//div[contains(@class,'messages')])[last()])"
+        ]
+      },
+      "stack_trace": {
+        "xpaths": [
+          "normalize-space(.//div[contains(@class,'stacktrace')][1])",
+          "normalize-space(.//pre[1])",
+          "normalize-space(.//textarea[1])"
+        ]
+      }
+    },
+    "total_test_count": {
+      "xpaths": [
+        "normalize-space((//div[contains(@class,'easy-test-overview')]//table[contains(@class,'easy-overview')]//tr[2]/th[14])[1])"
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "profile_folder": "profiles",
+  "profile_load_order": [
+    "testng_custom",
+    "extent_spark",
+    "extent_v2",
+    "allure_rendered",
+    "generic_html"
+  ],
+  "profile_files": [
+    "profiles/testng_custom.json",
+    "profiles/extent_spark.json",
+    "profiles/extent_v2.json",
+    "profiles/allure_rendered.json",
+    "profiles/generic_html.json"
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "source_html_file": "TestNG Report_202411211508.html",
+  "source_html_path": "C:\\Users\\sakthignanavel.a\\AppData\\Local\\Temp\\tmplgiorp_y\\TestNG Report_202411211508.html",
+  "report_type": "testng_custom",
+  "report_name": "TestNG Customized Report - 202411211508",
+  "total_test_count": 99,
+  "failed_test_count": 35,
+  "failure_category_summary": {
+    "Data Issue": 2,
+    "Unknown": 33
+  },
+  "categorized_failed_test_list": [
+    {
+      "test_name": "TS98208_Global_IngenioRx_DS10027_ExpertSignOff_WorkFlowExpertFilter Specific_Commercial_Approved_AgreeDecision_Yes_Explanations_Comments_Validation_Require",
+      "status": "Failed",
+      "failure_message": "13:35:46:008: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.NullPointerException at com.PaHub.pages.QueueManagerUiUxPage.uiuxAddQueueManagerChkBoxFilter(QueueManagerUiUxPage.java:1210) at com.PaHub.pages.QueueManagerUiUxPage.filterSelection_UiUx(QueueManagerUiUxPage.java:674) at com.PaHub.pages.QueueManagerPage.setQueueManagerFilter(QueueManagerPage.java:1764) at com.PaHub.test.Global.TS98208_Global_All_ExpertSignOff_WorkFlow.signoffRph(TS98208_Global_All_ExpertSignOff_WorkFlow.java:27) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 16 stack frames",
+      "failure_category": "Data Issue"
+    },
+    {
+      "test_name": "TS98208_Global_Humana_DS9014_ExpertSignOff_WorkFlow_Humana_ExpertSignOff_OverrideSignOff_ContinueThisEOC_28",
+      "status": "Failed",
+      "failure_message": "13:35:46:513: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.NullPointerException at com.PaHub.pages.QueueManagerUiUxPage.uiuxAddQueueManagerChkBoxFilter(QueueManagerUiUxPage.java:1305) at com.PaHub.pages.QueueManagerUiUxPage.filterSelection_UiUx(QueueManagerUiUxPage.java:674) at com.PaHub.pages.QueueManagerPage.setQueueManagerFilter(QueueManagerPage.java:1764) at com.PaHub.test.Global.TS98208_Global_All_ExpertSignOff_WorkFlow.signoffRph(TS98208_Global_All_ExpertSignOff_WorkFlow.java:27) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 16 stack frames",
+      "failure_category": "Data Issue"
+    },
+    {
+      "test_name": "TS98208_Global_UPMC_DS10258_ExpertSignOff_WorkFlow_Expert_Filter All_Denied_AgreeDecision_Yes",
+      "status": "Failed",
+      "failure_message": "13:35:46:909: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:38:31:063 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.click1(BaseTest.java:4838) at com.core.automation.framework.BaseTest.click(BaseTest.java:1310) at com.PaHub.pages.QueueManagerUiUxPage.handleFilterAlert(QueueManagerUiUxPage.java:130) at com.PaHub.pages.QueueManagerUiUxPage.filterSelection_UiUx(QueueManagerUiUxPage.java:685) at com.PaHub.pages.QueueManagerPage.setQueueManagerFilter(QueueManagerPage.java:1764) at com.PaHub.test.Global.TS98208_Global_All_ExpertSignOff_WorkFlow.signoffRph(TS98208_Global_All_ExpertSignOff_WorkFlow.java:27) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS98208_Global_SH_DS9797_ExpertSignOff_WorkFlow_SH_Filter_All_MakeDecision_Denied_AgreeDecision_Yes",
+      "status": "Failed",
+      "failure_message": "13:35:50:548: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:38:34:406 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.click1(BaseTest.java:4838) at com.core.automation.framework.BaseTest.click(BaseTest.java:1310) at com.PaHub.pages.QueueManagerUiUxPage.handleFilterAlert(QueueManagerUiUxPage.java:130) at com.PaHub.pages.QueueManagerUiUxPage.filterSelection_UiUx(QueueManagerUiUxPage.java:685) at com.PaHub.pages.QueueManagerPage.setQueueManagerFilter(QueueManagerPage.java:1764) at com.PaHub.test.Global.TS98208_Global_All_ExpertSignOff_WorkFlow.signoffRph(TS98208_Global_All_ExpertSignOff_WorkFlow.java:27) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS98208_Global_Point32Health_DS10191_ExpertSignOff_WorkFlowExpert_Filter All_Denied_AgreeDecision_Yes",
+      "status": "Failed",
+      "failure_message": "13:36:12:579: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:39:30:706 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.dynamicClick(BaseTest.java:7200) at com.PaHub.pages.CommonSignOffPage.valRedirectExit(CommonSignOffPage.java:5820) at com.PaHub.pages.CommonSignOffPage.validateDecisionFinalize(CommonSignOffPage.java:5666) at com.PaHub.pages.CommonSignOffPage.validateFinalizeFlow(CommonSignOffPage.java:5624) at com.PaHub.pages.CommonSignOffPage.validateDeciMakeGlobal(CommonSignOffPage.java:4767) at com.PaHub.pages.CommonSignOffPage.validateDeciMakeFlow(CommonSignOffPage.java:4841) at com.PaHub.test.Global.TS98208_Global_All_ExpertSignOff_WorkFlow.signoffRph(TS98208_Global_All_ExpertSignOff_WorkFlow.java:81) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS99656_Global_SH_DS9103_MDSignoff_Workflow_SH_Filter_All_EOC_GetNext_Button",
+      "status": "Failed",
+      "failure_message": "13:36:31:196: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:39:52:953 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.click1(BaseTest.java:4838) at com.core.automation.framework.BaseTest.click(BaseTest.java:1310) at com.PaHub.pages.QueueManagerUiUxPage.clickUiUxQueueDashboardarrow(QueueManagerUiUxPage.java:2529) at com.PaHub.pages.QueueManagerPage.clickGetNextBtn(QueueManagerPage.java:172) at com.PaHub.pages.CommonSignOffPage.redirToSignoffSameFilter(CommonSignOffPage.java:13875) at com.PaHub.test.WorkFlowHelper.CommonHelperClass.validateExitQueueButtonFlow(CommonHelperClass.java:157) at com.PaHub.test.Global.TS99656_Global_All_MDSignoff_Workflow.mdSignoff(TS99656_Global_All_MDSignoff_Workflow.java:118) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS98208_Global_PHP_DS9826_ExpertSignOff_WorkFlow_PHP_Filter_All_Denied_AgreeDecision_Yes",
+      "status": "Failed",
+      "failure_message": "13:35:41:010: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:40:11:332 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.javaScriptClick(BaseTest.java:4595) at com.PaHub.pages.CommonSignOffPage.getHCSYellowBarValues(CommonSignOffPage.java:3082) at com.PaHub.pages.CommonSignOffPage.validate_DispensingLocationSiteofCare(CommonSignOffPage.java:8837) at com.PaHub.test.Global.TS98208_Global_All_ExpertSignOff_WorkFlow.signoffRph(TS98208_Global_All_ExpertSignOff_WorkFlow.java:87) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS100450_Global_IngenioRx_DS9146_AuthorizationWorkFlow_Anthem_SubmitAuthorization_Filter_SubmitAuth_Pharmacy",
+      "status": "Failed",
+      "failure_message": "13:40:12:627: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:42:45:745 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.pages.CommonSignOffPage.verifyLandingonAuthdetailspage(CommonSignOffPage.java:11461) at com.PaHub.pages.CommonSignOffPage.filteredValuesValidation(CommonSignOffPage.java:2692) at com.PaHub.test.Global.TS100450_Global_All_AuthorizationWorkFlow.Authorization(TS100450_Global_All_AuthorizationWorkFlow.java:42) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS100450_Global_BCBSMI_DS13463_AuthorizationWorkFlow_June2024_CR4513_EOC Authorizations-Filter-Submit Authorization-Exit Queue",
+      "status": "Failed",
+      "failure_message": "13:41:52:377: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:44:37:907 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.pages.CommonSignOffPage.verifyLandingonAuthdetailspage(CommonSignOffPage.java:11461) at com.PaHub.pages.CommonSignOffPage.filteredValuesValidation(CommonSignOffPage.java:2692) at com.PaHub.test.Global.TS100450_Global_All_AuthorizationWorkFlow.Authorization(TS100450_Global_All_AuthorizationWorkFlow.java:42) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS101815_Global_ElixirOhio_DS19630_ExpertSignOff_WorkFlow_TestCase1_Expert Signoff-Filter-Making Decision-Commercial-Making Decision-Agree with decision Yes",
+      "status": "Failed",
+      "failure_message": "13:43:05:101: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:47:46:181 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.javaScriptClick(BaseTest.java:4595) at com.PaHub.pages.CommonSignOffPage.getHCSYellowBarValues(CommonSignOffPage.java:3082) at com.PaHub.pages.CommonSignOffPage.validate_DispensingLocationSiteofCare(CommonSignOffPage.java:8837) at com.PaHub.test.Global.TS101815_Global_All_ExpertSignOff_WorkFlow_TestCase1.signoffRph(TS101815_Global_All_ExpertSignOff_WorkFlow_TestCase1.java:86) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS102098_Global_PHP_DS12077_RphSignoffWorkflow_TestCase3_Rph_Filter All_AgreeDecision_Yes_ContinueThisEOC",
+      "status": "Failed",
+      "failure_message": "13:48:01:114: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:51:57:098 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.pages.CommonSignOffPage.isCorrectSignOffPageLanded(CommonSignOffPage.java:3059) at com.PaHub.pages.CommonSignOffPage.valCorrSignOffPageLand(CommonSignOffPage.java:12895) at com.PaHub.test.Global.TS102098_Global_All_RphSignoffWorkflow_TestCase3.signoffRph(TS102098_Global_All_RphSignoffWorkflow_TestCase3.java:140) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS102546_Global_UPMC_DS21154_AuthorizationWorkFlow2_June2024_CR4513_EOC Authorizations-Filter-Submit Authorization-Exit Queue_UPMC",
+      "status": "Failed",
+      "failure_message": "13:50:49:187: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:53:14:414 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.pages.CommonSignOffPage.verifyLandingonAuthdetailspage(CommonSignOffPage.java:11461) at com.PaHub.pages.CommonSignOffPage.filteredValuesValidation(CommonSignOffPage.java:2692) at com.PaHub.test.Global.TS102546_Global_All_AuthorizationWorkFlow2.Authorization(TS102546_Global_All_AuthorizationWorkFlow2.java:41) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS102132_Global_Geisinger_DS12432_RphSignoffWorkflow_TestCase4_RPH Signoff-Filter-Medicare-Making Decision-Agree with decision Yes",
+      "status": "Failed",
+      "failure_message": "13:48:51:618: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:55:33:823 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.click1(BaseTest.java:4838) at com.core.automation.framework.BaseTest.click(BaseTest.java:1310) at com.PaHub.pages.CommonSignOffPage.handleEocmovedtoNMIpopup(CommonSignOffPage.java:13739) at com.PaHub.pages.CommonSignOffPage.validateFinalizeFlow(CommonSignOffPage.java:5596) at com.PaHub.pages.CommonSignOffPage.valDefFlowGlobal(CommonSignOffPage.java:13011) at com.PaHub.test.Global.TS102132_Global_All_RphSignoffWorkflow_TestCase4.signoffRph(TS102132_Global_All_RphSignoffWorkflow_TestCase4.java:152) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS102813_Global_BCBSAZ_DS21403_MDSignoff_Workflow_Testcase3_MD Signoff-Filter-Commercial-Making Decision-Agree with decision Yes",
+      "status": "Failed",
+      "failure_message": "13:53:41:287: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:57:52:609 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.typeText2(BaseTest.java:1765) at com.core.automation.framework.BaseTest.typeText(BaseTest.java:1795) at com.PaHub.pages.CommonSignOffPage.handleExplaination(CommonSignOffPage.java:2027) at com.PaHub.pages.CommonSignOffPage.addExplGlobalDefFlow(CommonSignOffPage.java:13042) at com.PaHub.pages.CommonSignOffPage.valDefFlowGlobal(CommonSignOffPage.java:13006) at com.PaHub.test.Global.TS102813_Global_All_MDSignoff_Workflow_Testcase3.mdSignoff(TS102813_Global_All_MDSignoff_Workflow_Testcase3.java:136) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS102835_Global_Humana_DS23204_AuthorizationWorkFlow3_June2024_CR4513_EOC Authorizations-Filter-Submit Authorization-Exit Queue",
+      "status": "Failed",
+      "failure_message": "13:55:53:732: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 13:58:10:282 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.pages.CommonSignOffPage.verifyLandingonAuthdetailspage(CommonSignOffPage.java:11461) at com.PaHub.pages.CommonSignOffPage.filteredValuesValidation(CommonSignOffPage.java:2692) at com.PaHub.test.Global.TS102835_Global_All_AuthorizationWorkFlow3.Authorization(TS102835_Global_All_AuthorizationWorkFlow3.java:42) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS102835_Global_PHP_DS36851_AuthorizationWorkFlow3_June2024_CR4513_EOC Authorizations-Filter-Submit Authorization-Exit Queue",
+      "status": "Failed",
+      "failure_message": "13:58:12:452: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:00:51:171 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.pages.CommonSignOffPage.verifyLandingonAuthdetailspage(CommonSignOffPage.java:11461) at com.PaHub.pages.CommonSignOffPage.filteredValuesValidation(CommonSignOffPage.java:2692) at com.PaHub.test.Global.TS102835_Global_All_AuthorizationWorkFlow3.Authorization(TS102835_Global_All_AuthorizationWorkFlow3.java:42) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS102867_Global_Geisinger_DS21631_ExpertSignOff_WorkFlow_TestCase4_Expert Signoff_Filter_Pharmacy_Agree with Decision Yes_Denied EOC_Get Next",
+      "status": "Failed",
+      "failure_message": "13:58:29:740: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:02:57:116 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.click1(BaseTest.java:4838) at com.core.automation.framework.BaseTest.click(BaseTest.java:1310) at com.PaHub.pages.CommonSignOffPage.valGetNextEocPres(CommonSignOffPage.java:5765) at com.PaHub.pages.CommonSignOffPage.valRedirectGetNext(CommonSignOffPage.java:5697) at com.PaHub.pages.CommonSignOffPage.validateDecisionFinalize(CommonSignOffPage.java:5665) at com.PaHub.pages.CommonSignOffPage.validateFinalizeFlow(CommonSignOffPage.java:5624) at com.PaHub.pages.CommonSignOffPage.validateDeciMakeGlobal(CommonSignOffPage.java:4767) at com.PaHub.pages.CommonSignOffPage.validateDeciMakeFlow(CommonSignOffPage.java:4841) at com.PaHub.test.Global.TS102867_Global_All_ExpertSignOff_WorkFlow_TestCase4.signoffRph(TS102867_Global_All_ExpertSignOff_WorkFlow_TestCase4.java:80) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103217_Global_IngenioRx_DS69162_CreateEOCPhoneFlow_AnthemAnthem_EOC_Phone_Flow_CreateEOC_Anthem_Feb_CALIFORNIA-CommercialSRx_Medical_FERAHEME_Prescriber_AORFormReceived_No_Urgency_No_Denied_InitialPrimary_Phone_CarelonRx",
+      "status": "Failed",
+      "failure_message": "14:06:50:753: WARNING: Wait for Element btn_OkSecondEligibility Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:09:47:297 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.selectByVisibleText2(BaseTest.java:1898) at com.core.automation.framework.BaseTest.selectByVisibleText(BaseTest.java:1932) at com.PaHub.pages.HealthCareServicePage.whereisTheDrugBeingDispensed(HealthCareServicePage.java:4234) at com.PaHub.pages.HealthCareServicePage.verify_benefitRoutingQuestionsTextSelection(HealthCareServicePage.java:3709) at com.PaHub.pages.HealthCareServicePage.DrugDispenseFromcolunmValidation(HealthCareServicePage.java:10901) at com.PaHub.test.WorkFlowHelper.EOCFlowHelper.eocFlow(EOCFlowHelper.java:131) at com.PaHub.test.Global.TS103217_Global_All_CreateEOCPhoneFlow_Anthem.callingTheEOCFlow(TS103217_Global_All_CreateEOCPhoneFlow_Anthem.java:14) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103218_Global_Geisinger_DS69928_CreateEOCPhoneFlow_Geisinger_DS69928Geisinger_EOC_Phone_Flow_CreateEOC_Geisinger_Feb_MedicaidCHIP804_Pharmacy_TRAMADOLHCL_Prescriber_AORFormReceived_No_Urgency_Yes_Approved_InitialPrimary_Fax_Pharmacy",
+      "status": "Failed",
+      "failure_message": "14:07:10:283: WARNING: Wait for Element btn_OkSecondEligibility Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:14:24:397 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.pages.ReviewClinicalCriteria.answerReviewQuestions(ReviewClinicalCriteria.java:6344) at com.PaHub.test.WorkFlowHelper.EOCFlowHelper.eocFlow(EOCFlowHelper.java:955) at com.PaHub.test.Global.TS103218_Global_All_CreateEOCPhoneFlow_Geisinger.callingTheEOCFlow(TS103218_Global_All_CreateEOCPhoneFlow_Geisinger.java:14) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103232_Global_PBD_DS70389_CreateEOCPhoneFlow_PBD_DS70389PBD_EOC_Phone_Flow_CreateEOC_PBD_LMHF_Pharmacy_NURTECODT_Prescriber_AORFormReceived_No_Urgency_No_Approved_InitialPrimary_Fax_PA",
+      "status": "Failed",
+      "failure_message": "14:16:05:202: WARNING: Wait for Element btn_OkSecondEligibility Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:19:00:465 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.pages.HealthCareServicePage.validateDrugName(HealthCareServicePage.java:10882) at com.PaHub.test.WorkFlowHelper.EOCFlowHelper.eocFlow(EOCFlowHelper.java:114) at com.PaHub.test.Global.TS103232_Global_All_CreateEOCPhoneFlow_PBD.callingTheEOCFlow(TS103232_Global_All_CreateEOCPhoneFlow_PBD.java:14) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103233_Global_PHP_DS70523_CreateEOCPhoneFlow_PHP_DS70523php_EOC_Phone_Flow_CreateEOC_PHP_ProvidenceHealthPlans_Pharmacy_FOLLISTIMAQ_Prescriber_AORFormReceived_No_Urgency_Yes_Approved_InitialPrimary_Fax_All",
+      "status": "Failed",
+      "failure_message": "14:16:06:339: WARNING: Wait for Element btn_OkSecondEligibility Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:19:02:280 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.pages.HealthCareServicePage.validateDrugName(HealthCareServicePage.java:10882) at com.PaHub.test.WorkFlowHelper.EOCFlowHelper.eocFlow(EOCFlowHelper.java:114) at com.PaHub.test.Global.TS103233_Global_All_CreateEOCPhoneFlow_PHP.callingTheEOCFlow(TS103233_Global_All_CreateEOCPhoneFlow_PHP.java:14) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103223_Global_MC21_DS70297_CreateEOCPhoneFlow_MC21_DS70297mc_EOC_Phone_Flow_CreateEOC_MC21_CADAP_Pharmacy_ODEFSEY_Pharmacy_AORFormReceived_No_Urgency_No_Approved_InitialPrimary_Phone_ADAP",
+      "status": "Failed",
+      "failure_message": "14:12:19:241: WARNING: Wait for Element btn_OkSecondEligibility Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:19:47:512 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.javaScriptClick(BaseTest.java:4592) at com.PaHub.pages.HealthCareServicePage.hcsFinalizeButtonAction(HealthCareServicePage.java:1934) at com.PaHub.pages.HealthCareServicePage.benefitRoutingValidation(HealthCareServicePage.java:11940) at com.PaHub.test.WorkFlowHelper.EOCFlowHelper.eocFlow(EOCFlowHelper.java:134) at com.PaHub.test.Global.TS103223_Global_All_CreateEOCPhoneFlow_MC21.callingTheEOCFlow(TS103223_Global_All_CreateEOCPhoneFlow_MC21.java:14) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103238_Global_SH_DS70904_CreateEOCPhoneFlow_SelectHealthselecthealth_EOC_Phone_Flow_SH_CommercialUtah_Pharmacy_COMBIPATCH_Prescriber_AORFormReceived_No_Urgency_No_Denied_InitialPrimary_Fax_COM_MED",
+      "status": "Failed",
+      "failure_message": "14:19:59:930: WARNING: Wait for Element btn_OkSecondEligibility Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:29:17:560 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.pages.ReviewClinicalCriteria.answerReviewQuestions(ReviewClinicalCriteria.java:6344) at com.PaHub.test.WorkFlowHelper.EOCFlowHelper.eocFlow(EOCFlowHelper.java:955) at com.PaHub.test.Global.TS103238_Global_All_CreateEOCPhoneFlow_SelectHealth.callingTheEOCFlow(TS103238_Global_All_CreateEOCPhoneFlow_SelectHealth.java:14) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103250_Global_IngenioRx_DS54926_MemberCallBackQueue_Flow_Member Call Back_Remove Member CallBack Queue as Setup Rule Attempts_Queue Manager_Medica",
+      "status": "Failed",
+      "failure_message": "14:34:23:556: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:36:03:237 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.getAttribute_value(BaseTest.java:5410) at com.PaHub.pages.QueueManagerPage.reteriveEOcfromMembercallbackQueue_UiUx(QueueManagerPage.java:3914) at com.PaHub.pages.QueueManagerPage.reteriveEOcfromMembercallbackQueue(QueueManagerPage.java:3055) at com.PaHub.test.Global.TS103250_Global_All_MemberCallBackQueue_Flow.signoffRph(TS103250_Global_All_MemberCallBackQueue_Flow.java:22) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103250_Global_IngenioRx_DS54924_MemberCallBackQueue_Flow_Member Call Back_Filter_View_Time Elapsing_Export to Excel",
+      "status": "Failed",
+      "failure_message": "14:33:44:889: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:37:04:865 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.click1(BaseTest.java:4838) at com.core.automation.framework.BaseTest.click(BaseTest.java:1310) at com.PaHub.pages.QueueManagerPage.clickUnlockedEoc(QueueManagerPage.java:3856) at com.PaHub.pages.QueueManagerPage.validateExcelValue(QueueManagerPage.java:2156) at com.PaHub.test.Global.TS103250_Global_All_MemberCallBackQueue_Flow.signoffRph(TS103250_Global_All_MemberCallBackQueue_Flow.java:34) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS104411_Global_SH_DS44760_RphSignoffWorkflow_TestCase11Rph_Filter All_Denied_AgreeDecision_Yes",
+      "status": "Failed",
+      "failure_message": "14:38:15:728: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:39:15:793 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.click1(BaseTest.java:4838) at com.core.automation.framework.BaseTest.click(BaseTest.java:1310) at com.PaHub.pages.QueueManagerUiUxPage.clickUiUxQueueDashboardarrow(QueueManagerUiUxPage.java:2529) at com.PaHub.pages.QueueManagerUiUxPage.filterSelection_UiUx(QueueManagerUiUxPage.java:687) at com.PaHub.pages.QueueManagerPage.setQueueManagerFilter(QueueManagerPage.java:1764) at com.PaHub.test.Global.TS104411_Global_SH_RphSignoffWorkflow_TestCase11.signoffRph(TS104411_Global_SH_RphSignoffWorkflow_TestCase11.java:29) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS104416_Global_Point32Health_DS44838_RphSignoffWorkflow_TestCase16Rph_Filter All_Denied_AgreeDecision_Yes",
+      "status": "Failed",
+      "failure_message": "",
+      "stack_trace": "",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS99724_Global_Humana_DS10280_SubmitNotification_Workflow_EOC_Notifications_Filter_Finalize_Notification_Continue_this_EOC_EOC_Summary",
+      "status": "Failed",
+      "failure_message": "14:39:18:785: PASSED: I am in onTestSkipped method signoffRph skipped",
+      "stack_trace": "java.lang.AssertionError: 14:39:18:783 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.pages.LoginPage.login_Validation(LoginPage.java:249) at com.PaHub.pages.LoginPage.loginToApplication(LoginPage.java:110) at com.PaHub.framework.pahubBaseTest.logintoPahub(pahubBaseTest.java:350) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS99724_Global_IngenioRx_DS95008_SubmitNotification_Workflow_EOC Notifications-Filter-Finalize Notifications-Continue this EOC_EOC Summary_Notifications_ValidateOutboundCallMade",
+      "status": "Failed",
+      "failure_message": "14:39:00:213: WARNING: Wait for Element btn_OkSecondEligibility Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103030_Global_Geisinger_DS30213_SubmitNotification_Workflow2_EOC Notifications-Filter-Finalize Notifications-Get Next",
+      "status": "Failed",
+      "failure_message": "14:39:42:820: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103030_Global_SH_DS29970_SubmitNotification_Workflow2_EOC Notifications-Filter-Finalize Notifications-Get Next",
+      "status": "Failed",
+      "failure_message": "14:46:10:551: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS99724_Global_KaiserPermanente_DS30071_SubmitNotification_Workflow_EOC Notifications-Filter-Finalize Notifications-Continue this EOC_EOC Summary",
+      "status": "Failed",
+      "failure_message": "14:47:57:427: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:50:51:228 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.test.Global.TS103030_Global_All_SubmitNotification_Workflow2.submitNotification(TS103030_Global_All_SubmitNotification_Workflow2.java:39) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103030_Global_Point32Health_DS29989_SubmitNotification_Workflow2_EOC Notifications-Filter-Finalize Notifications-Exit Queue",
+      "status": "Failed",
+      "failure_message": "14:44:45:223: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:52:05:884 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.core.automation.framework.BaseTest.click1(BaseTest.java:4838) at com.core.automation.framework.BaseTest.click(BaseTest.java:1356) at com.PaHub.pages.UiUxNotificationsDetailsPage.validate_finalizeNotifications(UiUxNotificationsDetailsPage.java:154) at com.PaHub.test.Global.TS99724_Global_All_SubmitNotification_Workflow.submitNotification(TS99724_Global_All_SubmitNotification_Workflow.java:150) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS103033_Global_MedOne_DS30412_SubmitNotification_Workflow4_EOC Notifications-Filter-Finalize Notifications-Exit Queue",
+      "status": "Failed",
+      "failure_message": "14:51:11:027: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "java.lang.AssertionError: 14:54:04:883 expected [true] but found [false] at com.core.automation.framework.BaseTest.reportMessage(BaseTest.java:3002) at com.PaHub.test.Global.TS103030_Global_All_SubmitNotification_Workflow2.submitNotification(TS103030_Global_All_SubmitNotification_Workflow2.java:39) at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) at java.base/java.lang.Thread.run(Thread.java:834) ... Removed 19 stack frames",
+      "failure_category": "Unknown"
+    },
+    {
+      "test_name": "TS102146_Global_SouthernScripts_DS71585_CreateEOCPhoneFlow_SScriptsSScripts_EOC_Phone_Flow_CreateEOC_SouthernScripts_OLP-RxCompass_Pharmacy_OZEMPIC__AORFormReceived_No_Urgency_No_Approved_InitialPrimary_Fax_All",
+      "status": "Failed",
+      "failure_message": "14:50:37:614: WARNING: Wait for Element lblUiUxQMErroOccurredpopup Present failed, Page Not Loaded in given time seconds 10",
+      "stack_trace": "",
+      "failure_category": "Unknown"
+    }
+  ]
+}

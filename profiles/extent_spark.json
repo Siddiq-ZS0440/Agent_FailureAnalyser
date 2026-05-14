@@ -1,0 +1,72 @@
+{
+  "profile_name": "extent_spark",
+  "priority": 20,
+  "detection": {
+    "contains_text": [
+      "spark-style.css",
+      "class=\"spa -report\"",
+      "test-item"
+    ],
+    "xpaths": [
+      "//li[contains(@class,'test-item') and @status]",
+      "//tr[contains(@class,'event-row')]"
+    ]
+  },
+  "report": {
+    "name": {
+      "xpaths": [
+        "normalize-space(//div[contains(@class,'nav-right')]//span[contains(@class,'badge')][1])",
+        "normalize-space(//title)"
+      ],
+      "default": "Extent Spark Report"
+    }
+  },
+  "records": {
+    "root_xpath": "//li[contains(@class,'test-item') and @status]",
+    "failed_test_count": {
+      "xpaths": [
+        "normalize-space(//span[contains(@class,'text-fail') and contains(@class,'parent')])",
+        "normalize-space(//span[contains(@class,'badge') and contains(translate(.,'FAIL','fail'),'fail')])"
+      ]
+    },
+    "filter": {
+      "field": "status",
+      "operator": "equals_ignore_case",
+      "value": "fail"
+    },
+    "fields": {
+      "test_name": {
+        "xpaths": [
+          "normalize-space(.//p[contains(@class,'name')])",
+          "normalize-space(.//h5[contains(@class,'test-status')])"
+        ]
+      },
+      "status": {
+        "xpaths": [
+          "normalize-space(./@status)",
+          "normalize-space(.//span[contains(@class,'fail-bg')])",
+          "normalize-space(.//h5[contains(@class,'text-fail')])"
+        ],
+        "default": "fail"
+      },
+      "failure_message": {
+        "xpaths": [
+          "normalize-space((.//tr[contains(@class,'event-row')]//td[3][contains(translate(.,'ERROR','error'),'error')])[1])",
+          "normalize-space((.//tr[contains(@class,'event-row')]//td[3][contains(translate(.,'FAIL','fail'),'fail')])[1])",
+          "normalize-space((.//textarea[contains(@class,'code-block')])[1])"
+        ]
+      },
+      "stack_trace": {
+        "xpaths": [
+          "normalize-space((.//textarea[contains(@class,'code-block')])[1])",
+          "normalize-space((.//pre)[1])"
+        ]
+      }
+    },
+    "total_test_count": {
+      "xpaths": [
+        "normalize-space(count(//li[contains(@class,'test-item') and @status]))"
+      ]
+    }
+  }
+}

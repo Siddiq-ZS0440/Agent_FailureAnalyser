@@ -1,0 +1,27 @@
+2026-04-23 23:45:58,802 | INFO | Created run directory: D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_234558
+2026-04-23 23:45:58,802 | INFO | Stage 1/3: Starting extraction
+2026-04-23 23:45:58,802 | INFO | Loaded 4 profile(s) from D:\Failure_Analyser\Failure_Analyser_v6\profiles
+2026-04-23 23:45:58,802 | INFO | Reading HTML report: C:\Users\SAKTHI~1.A\AppData\Local\Temp\tmp4oc6vc72\08-11-2024UatPackNew.html
+2026-04-23 23:45:58,821 | INFO | Auto-detected report type: extent_v2
+2026-04-23 23:45:58,823 | INFO | Found 36 candidate record node(s)
+2026-04-23 23:45:58,835 | INFO | Extraction completed with 9 failed test(s)
+2026-04-23 23:45:58,859 | INFO | Copied source report to D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_234558\08-11-2024UatPackNew.html
+2026-04-23 23:45:58,876 | INFO | Wrote extraction output to D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_234558\report_failure_details.json
+2026-04-23 23:45:58,878 | INFO | Stage 2/3: Starting categorization
+2026-04-23 23:45:58,879 | INFO | Reading extraction JSON: D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_234558\report_failure_details.json
+2026-04-23 23:45:58,881 | INFO | Loaded categorization config from D:\Failure_Analyser\Failure_Analyser_v6\failure_categorization.json
+2026-04-23 23:45:58,883 | INFO | TRACE MATCH -> Assertion Failure: AssertionError
+2026-04-23 23:45:58,884 | INFO | TRACE MATCH -> Assertion Failure: AssertionError
+2026-04-23 23:45:58,885 | INFO | TRACE MATCH -> Assertion Failure: AssertionError
+2026-04-23 23:45:58,886 | INFO | TRACE MATCH -> Assertion Failure: AssertionError
+2026-04-23 23:45:58,887 | INFO | TRACE MATCH -> Assertion Failure: AssertionError
+2026-04-23 23:45:58,889 | INFO | TRACE MATCH -> Assertion Failure: AssertionError
+2026-04-23 23:45:58,889 | INFO | TRACE MATCH -> Assertion Failure: AssertionError
+2026-04-23 23:45:58,891 | INFO | TRACE MATCH -> Assertion Failure: AssertionError
+2026-04-23 23:45:58,892 | INFO | TRACE MATCH -> Assertion Failure: AssertionError
+2026-04-23 23:45:58,892 | INFO | Categorized 9 failed test(s) into 1 category bucket(s)
+2026-04-23 23:45:58,902 | INFO | Wrote categorization output to D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_234558\report_failure_categorization.json
+2026-04-23 23:45:58,904 | INFO | Stage 3/3: Starting Excel generation
+2026-04-23 23:45:58,904 | INFO | Reading categorization JSON: D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_234558\report_failure_categorization.json
+2026-04-23 23:45:58,995 | INFO | Saved Excel workbook to D:\Failure_Analyser\Failure_Analyser_v6\Results\Run_20260423_234558\report_failure_categorization.xlsx
+2026-04-23 23:45:58,998 | INFO | Pipeline completed successfully
