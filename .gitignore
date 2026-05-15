@@ -1,3 +1,16 @@
 .venv
 .streamlit
 __pycache__
+node_modules/
+package-lock.json
+package.json
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+build/
+dist/
+*.egg-info/
+*.egg
+
